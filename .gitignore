@@ -128,8 +128,15 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-### Intelij ###
-
+# Intelij
 .idea/
 *.iml
 .DS_Store+
+
+# database initialization scripts
+db-init/build-scripts/load_departments.sql
+db-init/build-scripts/load_dept_emp.sql
+db-init/build-scripts/load_dept_manager.sql
+db-init/build-scripts/load_employees.sql
+db-init/build-scripts/load_salaries.sql
+db-init/build-scripts/load_titles.sql
