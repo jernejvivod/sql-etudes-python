@@ -1,11 +1,13 @@
-import datetime
-from ..entities.entities import Title
-from . import Session
+from sql_etudes_python.manager import Session
+from sql_etudes_python.entities.entities import Title
 
-
-def get_all_current_unique_titles():
+# TODO modify to return list of strings
+def get_all_distinct_titles():
     with Session() as session:
         return session.query(Title.title) \
-            .filter(Title.to_date == datetime.date(9999, 1, 1)) \
             .distinct() \
             .all()
+
+
+if __name__ == '__main__':
+    res = get_all_distinct_titles()
