@@ -6,7 +6,7 @@ Base = declarative_base()
 
 
 class TableSchema:
-    __table_args__ = {"schema": "employees"}
+    __table_args__ = {'schema': 'employees'}
 
 
 # /base classes ###
@@ -24,8 +24,8 @@ class DeptEmp(Base, TableSchema):
     __tablename__ = 'dept_emp'
     emp_no = Column(Integer, ForeignKey('employees.employees.emp_no'), primary_key=True)
     dept_no = Column(String, ForeignKey('employees.departments.dept_no'), primary_key=True)
-    dept = relationship("Department", backref="dept_emp")
-    employee = relationship("Employee", backref="dept_emp")
+    dept = relationship('Department', backref='dept_emp')
+    employee = relationship('Employee', backref='dept_emp')
     from_date = Column(Date)
     to_date = Column(Date)
 
@@ -35,8 +35,8 @@ class DeptManager(Base, TableSchema):
     __tablename__ = 'dept_manager'
     dept_no = Column(String, ForeignKey('employees.departments.dept_no'))
     emp_no = Column(Integer, ForeignKey('employees.employees.emp_no'), primary_key=True)
-    dept = relationship("Department", backref="dept_manager")
-    employee = relationship("Employee", backref="dept_manager")
+    dept = relationship('Department', backref='dept_manager')
+    employee = relationship('Employee', backref='dept_manager')
     from_date = Column(Date)
     to_date = Column(Date)
 
@@ -56,7 +56,7 @@ class Employee(Base, TableSchema):
 class Salary(Base, TableSchema):
     __tablename__ = 'salaries'
     emp_no = Column(Integer, ForeignKey('employees.employees.emp_no'), primary_key=True)
-    employee = relationship("Employee", backref="salaries")
+    employee = relationship('Employee', backref='salaries')
     salary = Column(Integer)
     from_date = Column(Date, primary_key=True)
     to_date = Column(Date)
@@ -66,7 +66,7 @@ class Salary(Base, TableSchema):
 class Title(Base, TableSchema):
     __tablename__ = 'titles'
     emp_no = Column(Integer, ForeignKey('employees.employees.emp_no'), primary_key=True)
-    employee = relationship("Employee", backref="title")
+    employee = relationship('Employee', backref='title')
     title = Column(String)
     from_date = Column(Date)
     to_date = Column(Date)
